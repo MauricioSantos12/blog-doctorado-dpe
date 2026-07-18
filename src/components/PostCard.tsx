@@ -1,10 +1,10 @@
-import { Link as RouterLink } from 'react-router-dom'
-import { Box, Heading, Text } from '@chakra-ui/react'
-import type { BlogPost } from '../data/blogs'
-import { formatDate } from '../utils/formatDate'
+import { Link as RouterLink } from "react-router-dom";
+import { Box, Heading, Text } from "@chakra-ui/react";
+import type { BlogPost } from "../data/blogs";
+// import { formatDate } from "../utils/formatDate";
 
 interface PostCardProps {
-  post: BlogPost
+  post: BlogPost;
 }
 
 export default function PostCard({ post }: PostCardProps) {
@@ -23,11 +23,15 @@ export default function PostCard({ post }: PostCardProps) {
       boxShadow="sm"
       p={6}
       transition="all 0.15s ease"
-      _hover={{ boxShadow: 'md', borderLeftColor: 'brand.deep', textDecoration: 'none' }}
+      _hover={{
+        boxShadow: "md",
+        borderLeftColor: "brand.deep",
+        textDecoration: "none",
+      }}
     >
-      <Text fontSize="xs" fontWeight="600" color="brand.deep" textTransform="uppercase" letterSpacing="wide" mb={2}>
+      {/* <Text fontSize="xs" fontWeight="600" color="brand.deep" textTransform="uppercase" letterSpacing="wide" mb={2}>
         {formatDate(post.date)}
-      </Text>
+      </Text> */}
       <Heading as="h3" size="md" color="brand.deep" mb={2}>
         {post.title}
       </Heading>
@@ -38,5 +42,5 @@ export default function PostCard({ post }: PostCardProps) {
         Leer más →
       </Text>
     </Box>
-  )
+  );
 }

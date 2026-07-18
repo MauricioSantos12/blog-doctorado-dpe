@@ -12,14 +12,11 @@ import {
 } from "@chakra-ui/react";
 import { getBlogBySlug } from "../data/blogs";
 import { references } from "../data/blogContent";
-import { formatDate } from "../utils/formatDate";
+// import { formatDate } from "../utils/formatDate";
 import InfographicFlow from "../components/blog/InfographicFlow";
 import DimensionsShowcase from "../components/blog/DimensionsShowcase";
 import DataTable from "../components/blog/DataTable";
 import NotFound from "./NotFound";
-
-const lowerFirst = (text: string) =>
-  text.charAt(0).toLowerCase() + text.slice(1);
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -53,9 +50,9 @@ export default function BlogPost() {
         <Heading as="h1" size="xl" mb={3}>
           {post.title}
         </Heading>
-        <Text mb={3} fontSize="sm" color="brand.deep">
+        {/* <Text mb={3} fontSize="sm" color="brand.deep">
           {formatDate(post.date)} · {post.author}
-        </Text>
+        </Text> */}
         <HStack spacing={2} wrap="wrap">
           {post.tags.map((tag) => (
             <Tag
@@ -65,7 +62,7 @@ export default function BlogPost() {
               color="white"
               borderRadius="full"
             >
-              {lowerFirst(tag)}
+              {tag}
             </Tag>
           ))}
         </HStack>
