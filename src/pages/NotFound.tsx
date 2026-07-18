@@ -8,7 +8,7 @@ export default function NotFound() {
         404
       </Heading>
       <Text mb={4}>No encontramos el post que buscas.</Text>
-      <Link as={RouterLink} to="/" fontWeight="bold" color="brand.indigo">
+      <Link as={RouterLink} to="/" fontWeight="bold" color="brand.deep">
         ← Volver al inicio
       </Link>
     </Box>

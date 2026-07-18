@@ -1,5 +1,12 @@
-import { Link as RouterLink, NavLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { Box, Button, Flex, HStack, Link, Text } from "@chakra-ui/react";
+
+const navLinks = [
+  { to: "/#inicio", label: "Inicio" },
+  { to: "/#el-blog", label: "El blog" },
+  { to: "/#posts", label: "Posts" },
+  { to: "/experiencias-de-liderazgo", label: "Experiencias" },
+];
 
 export default function Header() {
   return (
@@ -8,9 +15,9 @@ export default function Header() {
       position="sticky"
       top={0}
       zIndex={20}
-      bg="brand.indigo"
+      bg="white"
       borderBottom="1px solid"
-      borderColor="whiteAlpha.200"
+      borderColor="brand.light"
     >
       <Flex
         maxW="1100px"
@@ -21,59 +28,48 @@ export default function Header() {
         justify="space-between"
         gap={4}
       >
-        <Link as={RouterLink} to="/" _hover={{ textDecoration: "none" }}>
+        <Link as={RouterLink} to="/#inicio" _hover={{ textDecoration: "none" }}>
           <Text
             fontSize="xl"
             fontWeight="800"
-            color="brand.platinum"
+            color="brand.deep"
             letterSpacing="tight"
+            whiteSpace="nowrap"
           >
-            Diana Escalante
-            <Text as="span" color="brand.lavender">
+            Líder en Mí
+            <Text as="span" color="brand.mid">
               .
             </Text>
           </Text>
         </Link>
 
         <HStack as="nav" spacing={8} display={{ base: "none", md: "flex" }}>
-          <Link
-            as={NavLink}
-            to="/"
-            fontSize="sm"
-            fontWeight="600"
-            color="brand.lavender"
-            _hover={{ color: "brand.platinum", textDecoration: "none" }}
-            _activeLink={{ color: "brand.platinum" }}
-          >
-            Inicio
-          </Link>
-          <Link
-            as={RouterLink}
-            to="/#posts"
-            fontSize="sm"
-            fontWeight="600"
-            color="brand.lavender"
-            _hover={{ color: "brand.platinum", textDecoration: "none" }}
-          >
-            Posts
-          </Link>
+          {navLinks.map((item) => (
+            <Link
+              key={item.to}
+              as={RouterLink}
+              to={item.to}
+              fontSize="sm"
+              fontWeight="600"
+              color="brand.deep"
+              _hover={{ color: "brand.ink", textDecoration: "none" }}
+            >
+              {item.label}
+            </Link>
+          ))}
         </HStack>
 
         <Button
           as={RouterLink}
           to="/#posts"
-          bg="brand.platinum"
-          color="brand.indigo"
+          bg="brand.deep"
+          color="white"
           fontWeight="700"
           fontSize="sm"
           borderRadius="full"
           px={5}
           size="sm"
-          _hover={{
-            bg: "brand.lavender",
-            color: "white",
-            textDecoration: "none",
-          }}
+          _hover={{ bg: "brand.mid", color: "white", textDecoration: "none" }}
         >
           Ver posts
         </Button>

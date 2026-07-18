@@ -9,9 +9,12 @@ const theme = extendTheme({
   config,
   colors: {
     brand: {
-      indigo: '#2b2d42',
-      lavender: '#8d99ae',
-      platinum: '#edf2f4',
+      deep: '#659287',
+      mid: '#88BDA4',
+      light: '#B1D3B9',
+      pale: '#E6F2DD',
+      // Verde oscuro derivado de la paleta para asegurar la legibilidad del texto
+      ink: '#33524B',
     },
   },
   fonts: {
@@ -21,15 +24,15 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: 'brand.platinum',
-        color: 'brand.indigo',
+        bg: 'brand.pale',
+        color: 'brand.ink',
       },
       a: {
-        color: 'brand.indigo',
+        color: 'brand.deep',
         fontWeight: 500,
       },
       'a:hover': {
-        color: 'brand.lavender',
+        color: 'brand.mid',
         textDecoration: 'underline',
       },
     },
@@ -37,7 +40,7 @@ const theme = extendTheme({
   components: {
     Heading: {
       baseStyle: {
-        color: 'brand.indigo',
+        color: 'brand.deep',
       },
     },
   },
